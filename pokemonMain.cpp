@@ -4,8 +4,10 @@
 using namespace std;
 
 int main() {
-  pokemon Charizard("Charizard", Fire);
-  Charizard.print();
+  pokemon Charmeleon("Charmeleon", Fire);
+  Charmeleon.base.setstats(58, 64, 58, 80, 65, 80);
+  Charmeleon.randomizerIV();
+  Charmeleon.print();
 
   return 0;
 }
