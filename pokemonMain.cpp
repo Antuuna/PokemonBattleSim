@@ -1,13 +1,17 @@
+#include "simulator.h"
 #include "pokemon.h"
 #include "stats.h"
+#include "unordered_map"
 
 using namespace std;
 
 int main() {
-  pokemon Charmeleon("Charmeleon", Fire);
-  Charmeleon.base.setstats(58, 64, 58, 80, 65, 80);
-  Charmeleon.randomizerIV();
-  Charmeleon.print();
+  simulator sim;
+  sim.accessPC("Dewott").print();
+  cout << endl;
+  sim.accessPC("Servine").print();
+  cout << endl;
+  sim.accessPC("Pignite").print();
 
   return 0;
 }

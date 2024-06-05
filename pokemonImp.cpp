@@ -53,6 +53,8 @@ void pokemon::print() {
     default:
       break;
   }
+
+  cout << "Pokemon: " << name << endl;
 }
 
 void pokemon::randomizerIV() {
