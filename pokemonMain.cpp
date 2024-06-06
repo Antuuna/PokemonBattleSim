@@ -15,6 +15,8 @@ int main() {
   cout << endl;
 
   sim.accessPC("Pignite").getMove(0).print();
+  cout << endl;
+  sim.accessMoveDatabase("Flame Charge").print();
 
   return 0;
 }

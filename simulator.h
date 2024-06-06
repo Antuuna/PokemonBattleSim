@@ -14,6 +14,7 @@ private:
 public:
   simulator();
   pokemon accessPC(string name);
+  moves accessMoveDatabase(string name);
   // Add moves to database function
   // start simulator
   // stop simulator
