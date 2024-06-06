@@ -5,9 +5,9 @@
 pokemon::pokemon() {
   name = "";
   typing = Normal;
-  base.setstats(0, 0, 0, 0, 0, 0);
-  IV.setstats(0, 0, 0, 0, 0, 0);
-  EV.setstats(0, 0, 0, 0, 0, 0);
+  setBase(0, 0, 0, 0, 0, 0);
+  setIV(0, 0, 0, 0, 0, 0);
+  setEV(0, 0, 0, 0, 0, 0);
 }
 
 pokemon::pokemon(string n, elements t) {
@@ -55,6 +55,10 @@ void pokemon::print() {
   }
 
   cout << "Pokemon: " << name << endl;
+  cout << "Move 1: " << moveset[0].getName() << endl;
+  cout << "Move 2: " << moveset[1].getName() << endl;
+  cout << "Move 3: " << moveset[2].getName() << endl;
+  cout << "Move 4: " << moveset[3].getName() << endl;
 }
 
 void pokemon::randomizerIV() {
@@ -68,4 +72,40 @@ void pokemon::randomizerIV() {
   int s = rand() % 32;
 
   IV.setstats(h, a, d, spa, spd, s);
+}
+
+stats pokemon::getBaseStats() {
+  return base;
+}
+
+stats pokemon::getIVStats() {
+  return IV;
+}
+
+stats pokemon::getEVStats() {
+  return EV;
+}
+
+void pokemon::setBase(int h, int a, int d, int spa, int spd, int s) {
+  base.setstats(h, a, d, spa, spd, s);
+}
+
+void pokemon::setIV(int h, int a, int d, int spa, int spd, int s) {
+  IV.setstats(h, a, d, spa, spd, s);
+}
+
+void pokemon::setEV(int h, int a, int d, int spa, int spd, int s) {
+  EV.setstats(h, a, d, spa, spd, s);
+}
+
+void pokemon::setMove(moves moveName, int moveSlot) {
+  moveset[moveSlot] = moveName;
+}
+
+moves pokemon::getMove(int index) {
+  return moveset[index];
+}
+
+pokemon::~pokemon() {
+
 }

@@ -1,10 +1,10 @@
 # Make file.
 
-OBJS	= pokemonMain.o simulatorImp.o pokemonImp.o statsImp.o
+OBJS	= pokemonMain.o simulatorImp.o pokemonImp.o statsImp.o movesImp.o
 CC		= g++
 CCFLAGS	= -Wall -Wextra -pedantic -std=c++11 -g
 
-DEPS	= simulator.h pokemon.h stats.h 
+DEPS	= simulator.h pokemon.h stats.h moves.h
 
 all: pokemonMain
 
@@ -22,6 +22,9 @@ pokemonImp.o: pokemonImp.cpp $(DEPS)
 
 statsImp.o: statsImp.cpp $(DEPS)
 	$(CC) $(CCFLAGS) -c statsImp.cpp
+
+movesImp.o: movesImp.cpp $(DEPS)
+	$(CC) $(CCFLAGS) -c movesImp.cpp
 
 
 # -----

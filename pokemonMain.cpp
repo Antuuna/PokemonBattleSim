@@ -12,6 +12,9 @@ int main() {
   sim.accessPC("Servine").print();
   cout << endl;
   sim.accessPC("Pignite").print();
+  cout << endl;
+
+  sim.accessPC("Pignite").getMove(0).print();
 
   return 0;
 }

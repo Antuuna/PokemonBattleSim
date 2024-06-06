@@ -85,3 +85,7 @@ void stats::print() {
   cout << setw(6) << spdef;
   cout << setw(6) << speed;
 }
+
+stats::~stats() {
+  
+}

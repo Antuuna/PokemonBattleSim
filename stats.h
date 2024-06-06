@@ -30,6 +30,7 @@ public:
   int getspdef();
   int getspeed();
   void print();
+  ~stats();
 };
 
 
