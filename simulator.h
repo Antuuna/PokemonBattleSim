@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <bits/stdc++.h>
+#include <iomanip>
 using namespace std;
 
 class simulator {
@@ -25,6 +26,9 @@ public:
   void battle(pokemon user, pokemon opponent);
   int move(moves selectedMove);
   bool checkKey (unordered_map<string,pokemon> m, string key);
+  void displayBattle(pokemon user, pokemon opponent);
+  void displayUserPokemon(pokemon user);
+  void displayOppoPokemon(pokemon opponent);
   // Add moves to database function
   // start simulator
   // stop simulator

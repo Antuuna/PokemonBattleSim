@@ -19,7 +19,8 @@ int main() {
   // cout << endl;
   // sim.accessMoveDatabase("Flame Charge").print();
 
-  sim.battle(sim.pokemonSelection(), sim.randomPokemonSelector());
+  //sim.battle(sim.pokemonSelection(), sim.randomPokemonSelector());
+  sim.displayOppoPokemon(sim.accessPC("Pignite"));
 
   return 0;
 }

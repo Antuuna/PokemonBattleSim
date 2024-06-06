@@ -100,6 +100,28 @@ void simulator::battle(pokemon user, pokemon opponent) {
   cout << "Opponent pokemon: " << opponent.getName() << endl;
 }
 
+void simulator::displayBattle(pokemon user, pokemon opponent) {
+  
+}
+
+void simulator::displayUserPokemon(pokemon user) {
+
+}
+
+void simulator::displayOppoPokemon(pokemon opponent) {
+  cout << "| " << opponent.getName() << setw(27) << "-------" << endl;
+  cout << "| " << "HP: ";
+  for (int i = 0; i < 20; i++)
+    cout << "#";
+  cout << setw(10) << "| -_- |" << endl;
+  cout << "\\ 19/19" << setw(29) << "-------" << endl;
+  cout << " ";
+  for (int i = 0; i < 25; i++)
+    cout << "~";
+  cout << setw(10) << " |   | " << endl;
+  cout << endl;
+}
+
 simulator::~simulator() {
 
 }
