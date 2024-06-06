@@ -4,17 +4,27 @@
 #include "unordered_map"
 #include "stats.h"
 #include "moves.h"
+#include <time.h>
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 class simulator {
 private:
   unordered_map<string, pokemon> PC;
   unordered_map<string, moves> moveDatabase;
+  vector<string> pokemonNames;
 
 public:
   simulator();
   pokemon accessPC(string name);
   moves accessMoveDatabase(string name);
+  pokemon pokemonSelection();
+  pokemon randomPokemonSelector();
+  void battle(pokemon user, pokemon opponent);
+  int move(moves selectedMove);
+  bool checkKey (unordered_map<string,pokemon> m, string key);
   // Add moves to database function
   // start simulator
   // stop simulator

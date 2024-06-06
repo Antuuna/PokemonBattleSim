@@ -106,6 +106,10 @@ moves pokemon::getMove(int index) {
   return moveset[index];
 }
 
+string pokemon::getName() {
+  return name;
+}
+
 pokemon::~pokemon() {
 
 }

@@ -32,6 +32,7 @@ public:
   void setEV(int h, int a, int d, int spa, int spd, int s);
   void setMove(moves moveName, int moveSlot);
   moves getMove(int index);
+  string getName();
   ~pokemon();
 };
 

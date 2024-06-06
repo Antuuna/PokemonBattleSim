@@ -17,6 +17,10 @@ simulator::simulator() {
   PC["Dewott"] = Dewott;
   PC["Pignite"] = Pignite;
 
+  pokemonNames.push_back("Servine");
+  pokemonNames.push_back("Dewott");
+  pokemonNames.push_back("Pignite");
+
   moves Tackle("Tackle", N, Physical, 40, 35, 100);
   moves Tail_Whip("Tail Whip", N, Status, 0, 30, 100);
   moves Water_Gun("Water Gun", W, Special, 40, 25, 100);
@@ -62,6 +66,38 @@ pokemon simulator::accessPC(string name) {
 
 moves simulator::accessMoveDatabase(string name) {
   return moveDatabase[name];
+}
+
+pokemon simulator::pokemonSelection() {
+  string input;
+  cout << "Select your Pokemon from the PC: " << endl;
+  for (int i = 0; i < pokemonNames.size(); i++) {
+    cout << pokemonNames[i] << endl;
+  }
+  cin >> input;
+  while(!(checkKey(PC, input))) {
+    cout << "Error: Pokemon doesn't exist in the PC! Pick another Pokemon" << endl;
+    cin >> input;
+  }
+  return PC[input];
+}
+
+pokemon simulator::randomPokemonSelector() {
+  srand(time(NULL));
+  return (PC[pokemonNames[rand() % pokemonNames.size()]]);
+}
+
+bool simulator::checkKey(unordered_map<string,pokemon> m, string key) {
+  if (m.find(key) == m.end())
+    return false;
+  else
+    return true;
+}
+
+
+void simulator::battle(pokemon user, pokemon opponent) {
+  cout << "User pokemon: " << user.getName() << endl;
+  cout << "Opponent pokemon: " << opponent.getName() << endl;
 }
 
 simulator::~simulator() {
