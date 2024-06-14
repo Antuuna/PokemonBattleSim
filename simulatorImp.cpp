@@ -108,18 +108,31 @@ void simulator::displayUserPokemon(pokemon user) {
 
 }
 
-void simulator::displayOppoPokemon(pokemon opponent) {
+void simulator::displayOppoPokemon(pokemon opponent, int currHP) {
+  int hpBarToSprite = 20 - ceil(static_cast<double>(currHP) / static_cast<double>(opponent.calculatedHP()) * 20);
   cout << "| " << opponent.getName() << setw(27) << "-------" << endl;
   cout << "| " << "HP: ";
-  for (int i = 0; i < 20; i++)
-    cout << "#";
-  cout << setw(10) << "| -_- |" << endl;
-  cout << "\\ 19/19" << setw(29) << "-------" << endl;
+  cout << healthBar(static_cast<double>(currHP), static_cast<double>(opponent.calculatedHP()));
+  cout << setw(hpBarToSprite + 10) << "| -_- |" << endl;
+  cout << "\\ " << currHP << "/" << opponent.calculatedHP();
+  if (currHP >= 10)
+    cout << setw(29) << "-------" << endl;
+  else
+    cout << setw(30) << "-------" << endl;
   cout << " ";
   for (int i = 0; i < 25; i++)
     cout << "~";
   cout << setw(10) << " |   | " << endl;
   cout << endl;
+}
+
+string simulator::healthBar(double currHP, double maxHP) {
+  string temp = "";
+  int hpBar = ceil((currHP / maxHP) * 20);
+  for (int i = 0; i < hpBar; i++) {
+    temp.push_back('#');
+  }
+  return temp;
 }
 
 simulator::~simulator() {

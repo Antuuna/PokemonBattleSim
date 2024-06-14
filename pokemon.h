@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <time.h>
+#include <cmath>
 #include "moves.h"
 using namespace std;
 
@@ -33,6 +34,7 @@ public:
   void setMove(moves moveName, int moveSlot);
   moves getMove(int index);
   string getName();
+  int calculatedHP();
   ~pokemon();
 };
 

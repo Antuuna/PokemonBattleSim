@@ -110,6 +110,10 @@ string pokemon::getName() {
   return name;
 }
 
+int pokemon::calculatedHP() {
+  return floor(0.01 * (2 * getBaseStats().gethp() + getIVStats().gethp() + floor(0.25 * getEVStats().gethp())) * 15) + 15 + 10;
+}
+
 pokemon::~pokemon() {
 
 }
