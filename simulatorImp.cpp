@@ -100,8 +100,13 @@ void simulator::battle(pokemon user, pokemon opponent) {
   cout << "Opponent pokemon: " << opponent.getName() << endl;
 }
 
-void simulator::displayBattle(pokemon user, pokemon opponent) {
-  
+void simulator::displayBattle(pokemon user, pokemon opponent, int userCurr, int oppoCurr) {
+  system("clear");
+  displayOppoPokemon(opponent, oppoCurr);
+  cout << "\n" << endl;
+  displayUserPokemon(user, userCurr);
+  cout << endl;
+  displayBattleUI(user);
 }
 
 void simulator::displayUserPokemon(pokemon user, int currHP) {
@@ -131,6 +136,33 @@ void simulator::displayOppoPokemon(pokemon opponent, int currHP) {
     cout << "~";
   cout << setw(10) << " |   | " << endl;
   cout << endl;
+}
+
+void simulator::displayBattleUI(pokemon user) {
+  cout << "| Select a move:" << setw(15) << "Pwr" << setw(5) << "PP" << endl;
+  for (int i = 0; i < 4; i++) {
+    int nameToType = 20 - user.getMove(i).getName().size();
+    cout << "| " << i + 1 << ": "<< user.getMove(i).getName() << setw(nameToType);
+    switch(user.getMove(i).getTyping()) {
+    case 0:
+      cout << "Normal";
+      break;
+    case 1:
+      cout << "Fire";
+      break;
+    case 2:
+      cout << "Water";
+      break;
+    case 3:
+      cout << "Grass";
+      break;
+    default:
+      break;
+    }
+    cout << setw(6) << user.getMove(i).getPower();
+    cout << setw(5) << user.getMove(i).getPowerPoint();
+    cout << endl;
+  } 
 }
 
 string simulator::healthBar(double currHP, double maxHP) {
